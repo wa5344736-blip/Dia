@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="beaty AI - Your AI assistant by Diabeaty">
+  <meta name="theme-color" content="#FFFFFF">
+  <title>beaty-AI</title>
+  
+  <!-- Authentic Claude Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Marked.js for Markdown Rendering -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+  <link rel="stylesheet" href="../css/AI.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+      <!-- Sidebar Header with Logo and Close Button -->
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon" aria-hidden="true"></div>
+          <span class="logo-text">AI</span>
+        </div>
+        <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar" title="Shift + S">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- New Chat Button -->
+      <button class="new-chat-btn" id="newChatBtn" aria-label="Start new conversation">
+        <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        <span id="newChatText">محادثة جديدة</span>
+      </button>
+
+      <!-- Navigation Menu -->
+      <nav class="nav-menu" aria-label="Primary">
+        <!-- Home Link -->
+        <a class="nav-item" href="../index.html">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span id="homeText">الرئيسية</span>
+        </a>
+        
+        <!-- Diet Link -->
+        <a class="nav-item" href="./diet.html">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+            <line x1="6" y1="1" x2="6" y2="4"></line>
+            <line x1="10" y1="1" x2="10" y2="4"></line>
+            <line x1="14" y1="1" x2="14" y2="4"></line>
+          </svg>
+          <span id="dietText">نظام غذائي</span>
+        </a>
+        
+        <!-- Upload/Analysis Link -->
+        <a class="nav-item" href="./upload.html">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="12" y1="18" x2="12" y2="12"></line>
+            <line x1="9" y1="15" x2="15" y2="15"></line>
+          </svg>
+          <span id="uploadText">التحليل</span>
+        </a>
+      </nav>
+
+      <!-- Recent Conversations -->
+      <div class="recents-section" role="region" aria-label="Recent conversations">
+        <div class="recents-header" id="recentHeader">الأخيرة</div>
+        <div id="recentsList"></div>
+      </div>
+
+      <!-- User Profile Section -->
+      <div class="user-profile">
+        <button class="profile-btn" id="settingsBtn" aria-label="Open settings">
+          <div class="avatar" id="userAvatar" aria-hidden="true">م</div>
+          <div class="profile-info">
+            <div class="profile-name" id="userName">مستخدم</div>
+            <div class="profile-plan" id="planText">خطة مجانية</div>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent" role="main">
+      <!-- Top Bar -->
+      <header class="top-bar">
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle sidebar" title="Shift + S">
+          <svg class="icon icon-lg" viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <div class="plan-badge">
+          <span class="plan-text" id="topPlanText">صنع بواسطة وجدي</span>
+        </div>
+      </header>
+
+      <!-- Content Area -->
+      <div class="content-area" id="contentArea">
+        <!-- Welcome Screen -->
+        <div class="welcome-screen" id="welcomeScreen">
+          <div class="hero-title">
+            <h1 class="hero-text" id="heroText">كيف يمكنني مساعدتك اليوم؟</h1>
+          </div>
+
+          <div class="input-container">
+            <!-- Main Input Box -->
+            <div class="input-box" role="search">
+              <label for="mainInput" class="sr-only">اكتب رسالة إلى بيتي</label>
+              <textarea 
+                class="input-textarea" 
+                id="mainInput" 
+                placeholder="اكتب رسالة إلى بيتي..." 
+                rows="1"
+                aria-label="Message input"
+              ></textarea>
+              <div class="input-toolbar">
+                <button class="send-btn" id="sendBtn" disabled aria-label="Send message">
+                  <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                    <line x1="12" y1="19" x2="12" y2="5"></line>
+                    <polyline points="5 12 12 5 19 12"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Suggestion Chips -->
+            <div class="suggestions" role="group" aria-label="Suggested prompts">
+              <button class="suggestion-chip" data-suggestion="اشعر بالتعب الشديد">
+                <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span id="suggest1">اشعر بالتعب الشديد</span>
+              </button>
+              <button class="suggestion-chip" data-suggestion="هل يمكنني الصيام اليوم؟">
+                <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                <span id="suggest2">هل يمكنني الصيام اليوم؟</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Messages Area -->
+        <div class="messages-area" id="messagesArea" style="display: none;" role="log" aria-live="polite" aria-label="Conversation"></div>
+      </div>
+
+      <!-- Bottom Input (shown during conversation) -->
+      <div class="bottom-input" id="bottomInput" style="display: none;">
+        <div class="input-box">
+          <label for="bottomTextarea" class="sr-only">الرد على بيتي</label>
+          <textarea 
+            class="input-textarea" 
+            id="bottomTextarea" 
+            placeholder="الرد على بيتي..." 
+            rows="1"
+            aria-label="Reply input"
+          ></textarea>
+          <div class="input-toolbar">
+            <button class="send-btn" id="bottomSendBtn" disabled aria-label="Send message">
+              <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                <line x1="12" y1="19" x2="12" y2="5"></line>
+                <polyline points="5 12 12 5 19 12"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Settings Overlay -->
+  <div class="settings-overlay" id="settingsOverlay" role="dialog" aria-modal="true" aria-labelledby="settingsHeader">
+    <div class="settings-panel">
+      <h2 class="settings-header" id="settingsHeader">الإعدادات</h2>
+      
+      <!-- Language Toggle -->
+      <div class="settings-group">
+        <div class="settings-toggle">
+          <label class="settings-label" id="languageLabel">اللغة الإنجليزية (English)</label>
+          <button 
+            class="toggle-switch" 
+            id="languageToggle" 
+            role="switch" 
+            aria-checked="false"
+            aria-label="Toggle English language"
+          >
+            <div class="toggle-slider"></div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Theme Toggle -->
+      <div class="settings-group">
+        <div class="settings-toggle">
+          <label class="settings-label" id="themeLabel">الوضع الداكن</label>
+          <button 
+            class="toggle-switch" 
+            id="themeToggle" 
+            role="switch" 
+            aria-checked="false"
+            aria-label="Toggle dark mode"
+          >
+            <div class="toggle-slider"></div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="settings-actions">
+        <button class="btn-cancel" id="cancelBtn">إلغاء</button>
+        <button class="btn-save" id="saveBtn">حفظ</button>
+      </div>
+    </div>
+  </div>
+  
+  <audio id="clickSound" preload="auto">
+    <source src="../sounds/click.mp3" type="audio/mpeg">
+  </audio>
+  
+  <!-- Firebase and Script -->
+  <script src="../js/config.js"></script>
+  <script type="module" src="../js/firestore.js"></script>
+  <script type="module" src="../js/AI.js"></script>
+</body>
+</html>

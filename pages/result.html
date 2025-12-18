@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>نتائج التحليل الطبي</title>
+  <meta name="description" content="تفسير نتائج التحليل الطبي بالذكاء الاصطناعي">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Marked.js for Markdown Rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="stylesheet" href="../css/result.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="brand">
+      <i class="fas fa-heartbeat"></i>
+      <span>تحليلي</span>
+    </div>
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </button>
+  </nav>
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Sidebar Menu -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand">القائمة</div>
+      <button class="close-menu" id="closeMenu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="menu-items">
+      <a href="../index.html" class="menu-link">
+        <i class="fas fa-home"></i> الرئيسية
+      </a>
+      <a href="./AI.html" class="menu-link">
+        <i class="fas fa-robot"></i> مساعد الذكاء الاصطناعي
+      </a>
+      <a href="./upload.html" class="menu-link">
+        <i class="fas fa-upload"></i> تحليل جديد
+      </a>
+      <a href="./diet.html" class="menu-link">
+        <i class="fas fa-apple-alt"></i> النظام الغذائي
+      </a>
+    </div>
+
+    <div class="sidebar-footer">
+      <button class="theme-toggle-btn" id="themeToggle">
+        <i class="fas fa-moon" id="themeIcon"></i>
+        <span id="themeText">الوضع الليلي</span>
+      </button>
+      <button class="theme-toggle-btn">
+        <i class="fas fa-globe"></i>
+        <span>English / العربية</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="container">
+    
+    <!-- Alerts -->
+    <div id="errorMessage" class="alert alert-error"></div>
+    <div id="warningMessage" class="alert alert-warning"></div>
+
+    <!-- Main Result Card -->
+    <div class="card" id="mainCard" style="display: none;">
+      
+      <!-- Status -->
+      <div class="status-header">
+        <div class="status-icon success">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h2 class="status-text">تم تحليل النتائج بنجاح</h2>
+      </div>
+
+      <!-- Extracted Text (Collapsible) -->
+      <div style="margin-bottom: 20px;">
+        <div class="extracted-header">
+          <span><i class="fas fa-file-alt"></i> النص المستخرج</span>
+          <button class="toggle-text" id="toggleExtracted">عرض</button>
+        </div>
+        <div class="extracted-box" id="extractedText"></div>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid var(--border); margin: 20px 0;">
+
+      <!-- Detailed Analysis -->
+      <div class="section-title" style="color: var(--primary); font-weight:bold; margin-bottom: 15px; font-size: 1.2rem;">
+        <i class="fas fa-stethoscope"></i> التحليل الطبي المفصل
+      </div>
+      
+      <div class="analysis-result" id="analysisResult">
+        <!-- Content will be injected here via Marked.js -->
+      </div>
+
+      <!-- AI Interaction (Update Result) -->
+      <div class="interaction-area">
+        <p style="margin-bottom: 10px; font-size: 14px; color: var(--text-muted);">
+          <i class="fas fa-sparkles" style="color: var(--secondary);"></i> 
+          هل لديك استفسار محدد حول هذه النتائج؟ اسأل هنا ليقوم الذكاء الاصطناعي بتحديث الشرح.
+        </p>
+        <div class="input-group">
+          <input type="text" class="ai-input" id="askInput" placeholder="مثال: ماذا تعني نسبة السكر المرتفعة؟" />
+          <button class="send-btn" id="askBtn">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="actions-grid">
+        <button class="btn btn-whatsapp" id="whatsappBtn">
+          <i class="fab fa-whatsapp"></i>
+          مشاركة عبر واتساب
+        </button>
+        <button class="btn btn-download" id="downloadBtn">
+          <i class="fas fa-file-download"></i>
+          حفظ نصي
+        </button>
+        <a href="upload.html" class="btn btn-secondary" style="grid-column: span 2;">
+          <i class="fas fa-redo"></i>
+          تحليل صورة أخرى
+        </a>
+      </div>
+
+    </div> 
+
+    <!-- Loading State (Initial) -->
+    <div id="pageLoader" class="loader">
+      <div class="spinner"></div>
+    </div>
+  </div>
+  <audio id="clickSound" preload="auto">
+    <source src="../sounds/click.mp3" type="audio/mpeg">
+  </audio>
+<script src="../js/config.js"></script>
+<script src="../js/result.js"></script>
+</body>
+</html>
