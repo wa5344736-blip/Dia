@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Diabeaty - منصة شاملة لمرضى السكري مع الذكاء الاصطناعي">
+    <title>Diabeaty - منصة شاملة لمرضى السكري</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/description.css">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>Diabeaty</span>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#features">المميزات</a></li>
+                <li><a href="#gallery">المعرض</a></li>
+                <li><a href="#technology">التقنيات</a></li>
+                <li><a href="index.html" class="cta-nav">ابدأ الآن</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="gradient-text">Diabeaty</span>
+            </h1>
+            <p class="hero-subtitle">منصتك الشاملة للعناية بمرضى السكري - حيث يلتقي الذكاء الاصطناعي بالرعاية الصحية</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="stat-number" data-target="5">0</span>
+                    <span class="stat-label">صفحات متكاملة</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-number" data-target="3">0</span>
+                    <span class="stat-label">خدمات AI</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-number" data-target="24">0</span>
+                    <span class="stat-label">ساعة دعم</span>
+                </div>
+            </div>
+            <a href="../index.html" class="cta-button">
+                <i class="fas fa-rocket"></i>
+                <span>ابدأ رحلتك الصحية الآن</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">لماذا Diabeaty؟</h2>
+                <p class="section-subtitle">منصة متكاملة تجمع بين التقنية الحديثة والعناية الطبية الدقيقة</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>ذكاء اصطناعي متقدم</h3>
+                    <p>تحليلات ذكية ونصائح مخصصة باستخدام أحدث تقنيات الذكاء الاصطناعي من Groq API</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>أمان وخصوصية</h3>
+                    <p>بياناتك محمية بأحدث معايير الأمان من خلال Firebase ونظام مصادقة متقدم</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>تصميم متجاوب</h3>
+                    <p>واجهة مستخدم سلسة وسهلة الاستخدام على جميع الأجهزة والشاشات</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>تحليلات طبية دقيقة</h3>
+                    <p>تحليل نتائجك الطبية بدقة عالية باستخدام تقنية OCR والذكاء الاصطناعي</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>خطط غذائية مخصصة</h3>
+                    <p>خطط غذائية مصممة خصيصاً لحالتك الصحية مع إمكانية التعديل المستمر</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>مساعد ذكي متاح دائماً</h3>
+                    <p>تحدث مع مساعدك الذكي الخاص على مدار الساعة للحصول على استشارات فورية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">المعرض الإعلامي</h2>
+                <p class="section-subtitle">اكتشف موارد تعليمية شاملة عن مرض السكري</p>
+            </div>
+
+            <!-- Toggle Buttons -->
+            <div class="media-toggle">
+                <button class="toggle-btn active" data-media="images">
+                    <i class="fas fa-images"></i>
+                    <span>الصور</span>
+                </button>
+                <button class="toggle-btn" data-media="audio">
+                    <i class="fas fa-music"></i>
+                    <span>الصوتيات</span>
+                </button>
+            </div>
+
+            <!-- Images Gallery -->
+            <div class="media-content active" id="imagesContent">
+                <div class="images-grid" id="imagesGrid">
+                    <!-- Images will be loaded by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Audio Gallery -->
+            <div class="media-content" id="audioContent">
+                <div class="audio-list" id="audioList">
+                    <!-- Audio players will be loaded by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology-section" id="technology">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">التقنيات المستخدمة</h2>
+                <p class="section-subtitle">مبنية على أحدث التقنيات لضمان أفضل أداء وأعلى مستوى من الأمان</p>
+            </div>
+
+            <!-- Technology Tabs -->
+            <div class="tech-tabs">
+                <button class="tech-tab active" data-category="frontend">
+                    <i class="fas fa-code"></i>
+                    <span>Frontend</span>
+                </button>
+                <button class="tech-tab" data-category="backend">
+                    <i class="fas fa-server"></i>
+                    <span>Backend</span>
+                </button>
+                <button class="tech-tab" data-category="ai">
+                    <i class="fas fa-robot"></i>
+                    <span>AI & ML</span>
+                </button>
+                <button class="tech-tab" data-category="tools">
+                    <i class="fas fa-tools"></i>
+                    <span>Tools</span>
+                </button>
+            </div>
+
+            <!-- Technology Content -->
+            <div class="tech-content" id="techContent">
+                <!-- Tech cards will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>جاهز لتحسين صحتك؟</h2>
+                <p>ابدأ رحلتك مع Diabeaty اليوم واحصل على رعاية صحية ذكية ومخصصة</p>
+                <a href="../index.html" class="cta-button">
+                    <i class="fas fa-play"></i>
+                    <span>ابدأ الآن مجاناً</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>عن Diabeaty</h4>
+                <p>منصة شاملة تجمع بين الذكاء الاصطناعي والرعاية الصحية لمساعدة مرضى السكري على عيش حياة أفضل وأكثر صحة.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="index.html">الصفحة الرئيسية</a></li>
+                    <li><a href="#features">المميزات</a></li>
+                    <li><a href="#gallery">المعرض</a></li>
+                    <li><a href="#technology">التقنيات</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>الخدمات</h4>
+                <ul>
+                    <li><a href="./diet.html">خطة النظام الغذائي</a></li>
+                    <li><a href="./upload.html">تحليل النتائج</a></li>
+                    <li><a href="./AI.html">المساعد الذكي</a></li>
+                    <li><a href="../index.html">تقييم أمان الصيام</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>تواصل معنا</h4>
+                <p><i class="fas fa-envelope"></i> info@diabeaty.com</p>
+                <p><i class="fas fa-phone"></i> +20 123 456 7890</p>
+                <p><i class="fas fa-map-marker-alt"></i> القاهرة، مصر</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Diabeaty. جميع الحقوق محفوظة | تم التطوير بواسطة <strong>وجدي أحمد</strong></p>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <div class="fab" id="fab">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-prev" id="lightboxPrev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-next" id="lightboxNext">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <img src="" alt="" id="lightboxImage">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- JavaScript -->
+    <script src="../js/description.js"></script>
+</body>
+</html>
